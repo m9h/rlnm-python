@@ -6,6 +6,8 @@ research implementation of [pBFSLab/rLNM](https://github.com/pBFSLab/rLNM), pinn
 to commit `059ade5fc2a332bb2a246ef7db0bd7c4217446e4`. It is not an official release
 from the paper's authors.
 
+[![tests](https://github.com/m9h/rlnm-python/actions/workflows/ci.yml/badge.svg)](https://github.com/m9h/rlnm-python/actions/workflows/ci.yml)
+
 ## Install and run
 
 ```bash
@@ -25,6 +27,13 @@ and [validation](docs/validation.md). Python 3.11+ is supported. No MATLAB licen
 is needed to run the Python package.
 
 ## Status
+
+Initial validation passed: 20 tests on Linux, macOS and Windows (Python 3.11/3.12),
+plus execution of original MATLAB calculation blocks through Octave. On the
+184-map upstream example, shared-permutation p-values matched exactly and the
+largest numerical discrepancy across compared arrays was `1.42e-14`.
+The Python sample pipeline also completed 10,000 permutations over 5,486 voxels.
+[Recorded evidence and scope](docs/validation.md#recorded-initial-validation).
 
 Version 0.1 implements the statistical and functional-mapping core. Structural
 tractography, electrode reconstruction, electric-field simulation, registration,
@@ -47,4 +56,3 @@ uv run python -m build
 ```
 
 Apache-2.0. See [NOTICE](NOTICE) for attribution and adapted upstream components.
-

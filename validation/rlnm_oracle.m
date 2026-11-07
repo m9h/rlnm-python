@@ -60,4 +60,3 @@ overlap = overlap(:)';
 save(output_file, 'regressors', 'residuals', 't', 'effect', 'p_one', 'p_two', ...
      'q_one', 'q_two', 'projected', 'overlap', '-v7');
 end
-

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "engine": "octave",
+  "upstream_commit": "059ade5fc2a332bb2a246ef7db0bd7c4217446e4",
+  "fixture": {
+    "maps": 18,
+    "voxels": 29,
+    "symptoms": 3,
+    "permutations": 83,
+    "upstream_example": false
+  },
+  "input_sha256": "68b6999e2698a45d29da52ff1d7fbfbf722e19dfdcc3d34875895e0848ae3b42",
+  "max_absolute_errors": {
+    "regressors": 1.1102230246251565e-16,
+    "residuals": 2.220446049250313e-16,
+    "t": 6.661338147750939e-16,
+    "effect": 3.3306690738754696e-16,
+    "p_one": 0.0,
+    "q_one": 1.1102230246251565e-16,
+    "p_two": 0.0,
+    "q_two": 2.220446049250313e-16,
+    "projected": 1.1102230246251565e-16,
+    "overlap": 0.0
+  },
+  "limitations": [
+    "No NIfTI I/O comparison in this oracle",
+    "No annealing or KS acceptance equivalence claimed",
+    "Shared permutation rows; RNG sequences are intentionally different",
+    "Not an end-to-end reproduction of the paper"
+  ]
+}

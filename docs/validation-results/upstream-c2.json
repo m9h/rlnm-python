@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "upstream_commit": "059ade5fc2a332bb2a246ef7db0bd7c4217446e4",
+  "package_version": "0.1.0",
+  "python": "3.12.13",
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "nibabel": "5.4.2",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 0,
+  "summary": {
+    "analysis": "specificity",
+    "space": "upstream-MNI-8mm",
+    "n_lesions": 184,
+    "domain_voxels": 5486,
+    "n_permutations": 10000,
+    "fdr": 0.05,
+    "sided": "one",
+    "inference": "upstream fixed-residual label permutation; not a refit-permutation test",
+    "fdr_family": "domain voxels, separately for each symptom",
+    "shared_map_sensitivity_masked": true,
+    "results": [
+      {
+        "symptom": "Face",
+        "file_stem": "symptom-001",
+        "n": 47,
+        "significant_voxels": 309,
+        "minimum_q": 0.01769500469307908
+      },
+      {
+        "symptom": "Lan",
+        "file_stem": "symptom-002",
+        "n": 58,
+        "significant_voxels": 1320,
+        "minimum_q": 0.0008211753674931909
+      },
+      {
+        "symptom": "Spatial",
+        "file_stem": "symptom-003",
+        "n": 79,
+        "significant_voxels": 1397,
+        "minimum_q": 0.0008150745103795713
+      }
+    ],
+    "elapsed_seconds": 27.694
+  },
+  "scope": "Python integration run of the supplied C2 example; not a full paper or MATLAB pipeline reproduction"
+}

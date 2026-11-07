@@ -112,4 +112,3 @@ reported lesion cohorts, or structural-connectivity extension. It does not
 validate clinical use, identify a causal treatment target, or claim improved
 statistical power. Its contribution is an inspectable implementation and a
 foundation for comparisons and subsequent validation.
-

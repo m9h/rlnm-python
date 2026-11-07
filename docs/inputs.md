@@ -148,4 +148,3 @@ sensitivity = sensitivity_from_nulls(
 These names describe user-provided arrays; they are not preloaded variables.
 The array API deliberately leaves geometry validation to its caller. The CLI
 performs that validation and should be preferred for file-based analyses.
-
