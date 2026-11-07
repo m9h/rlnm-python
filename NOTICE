@@ -1,0 +1,24 @@
+rlnm-python
+Copyright 2026 Morgan Hough
+
+This independent implementation adapts methods and calculations from:
+pBFSLab/rLNM — Robust Lesion Network Mapping
+https://github.com/pBFSLab/rLNM
+Pinned commit: 059ade5fc2a332bb2a246ef7db0bd7c4217446e4
+Upstream license: Apache License, Version 2.0.
+
+Adapted components include mean FC row projection, percentile-based signed
+overlap, spatial lesion translation and frequency-matching annealing,
+leave-one-lesion-out shared regressors, OLS residuals, Welch statistics,
+pooled-SD effects, and permutation/FDR calculations. Python I/O, configuration,
+provenance, deterministic per-draw random streams, reports, and validation
+infrastructure are new. Changes and departures are described in docs/methods.md.
+
+Please cite the originating study when using these methods:
+Cui W et al. Robust lesion network mapping reveals symptom-specific circuits.
+bioRxiv. https://doi.org/10.64898/2026.05.18.725812
+
+Upstream example data are downloaded separately, are not redistributed by this
+repository, and retain their original attribution and terms. This repository
+does not imply endorsement by the upstream authors or by BCBtoolkit/Lead-DBS.
+

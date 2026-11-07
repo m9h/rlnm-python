@@ -1,0 +1,42 @@
+name: tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.11', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run pytest -q
+      - run: uv build
+  matlab-source-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: pBFSLab/rLNM
+          ref: 059ade5fc2a332bb2a246ef7db0bd7c4217446e4
+          path: upstream-reference
+          lfs: false
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends octave
+      - run: uv sync --locked
+      - run: uv run python scripts/validate_reference.py --upstream upstream-reference --engine octave --output validation-results/oracle.json
+      - run: uv run python scripts/validate_reference.py --upstream upstream-reference --engine octave --upstream-example --output validation-results/example-oracle.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: octave-reference-validation
+          path: validation-results/
