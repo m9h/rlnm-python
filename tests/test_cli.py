@@ -24,3 +24,16 @@ def test_cli_failure_is_nonzero(tmp_path):
     )
     assert result.returncode == 2
     assert "analysis must" in result.stderr
+
+
+def test_research_demo_and_commands(tmp_path):
+    from rlnm.cli import main
+
+    directory = tmp_path / "research"
+    assert main(["demo-research", "--output", str(directory)]) == 0
+    assert (directory / "annotate.json").exists()
+    assert (directory / "benchmark.json").exists()
+    invalid = tmp_path / "invalid.json"
+    invalid.write_text('{"unknown": true}')
+    for command in ("annotate", "benchmark-eigenbrain"):
+        assert main([command, str(invalid), "--output", str(tmp_path / command)]) == 2

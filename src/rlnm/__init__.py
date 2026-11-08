@@ -4,7 +4,7 @@ from .sensitivity import mean_connectivity, sensitivity_from_nulls, signed_overl
 from .specificity import specificity
 from .stats import bh_fdr, shared_residuals, specific_effect, welch_t
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 UPSTREAM_COMMIT = "059ade5fc2a332bb2a246ef7db0bd7c4217446e4"
 
 __all__ = [

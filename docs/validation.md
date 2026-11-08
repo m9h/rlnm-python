@@ -58,6 +58,31 @@ of MATLAB's image I/O, RNG, or `kstest2`. The shared display map is not covered
 by the oracle. Later documentation/whitespace-only commits do not change these
 tested calculations.
 
+## Molecular-extension checks
+
+The optional workflows add tests of annotation-side null orientation, two-sided
+tails and ties, common-domain parcel coverage, explicit resampling, field-of-view
+masking, deterministic BrainSMASH draws and variogram diagnostics, and complete
+synthetic pipelines. The EigenBrain-style tests verify analytic Procrustes/OLS
+recovery, training-only baseline construction, and held-out-target isolation:
+changing a test participant's PET cannot change that participant's prediction,
+selected component count, inner scores, or baseline. Reference cohort overlap and
+parcel-order mismatch are rejected.
+
+Run `uv run --all-extras pytest -q` to execute the optional backend tests. Without
+extras, these tests are explicitly skipped; array validation tests still run.
+CI runs the extras and both synthetic CLI workflows on Linux, macOS, and Windows.
+These checks establish implementation behavior, not reproduction of EigenBrain's
+published results or evidence of individual receptor-density prediction. See
+[methods and input contracts](molecular.md).
+
+[Recorded local v0.2 checks](validation-results/molecular-v02.json) include 35
+passing tests with optional backends, both synthetic CLI analyses, and a real
+neuromaps Savli 5-HT1a download with a verified 61×73×61 millimetre grid and SHA-256.
+The synthetic benchmark did not beat its atlas baseline; the small annotation
+demo also exposes poor variogram fits. These outcomes are retained, not filtered
+into favorable accuracy or calibration claims. Distribution builds and lint pass.
+
 ## Remaining scientific validation
 
 - False-positive calibration for the fixed-residual, label-dependent specificity

@@ -21,3 +21,11 @@ bioRxiv. https://doi.org/10.64898/2026.05.18.725812
 Upstream example data are downloaded separately, are not redistributed by this
 repository, and retain their original attribution and terms. This repository
 does not imply endorsement by the upstream authors or by BCBtoolkit/Lead-DBS.
+
+The optional annotation and FC-only molecular benchmark are independently written
+research extensions informed by Wan B et al., EigenBrain maps cortical molecular
+architecture from functional, geometric, and structural eigenmodes.
+https://doi.org/10.64898/2026.10.27.758642
+No source code or data from EigenBrain_framework is incorporated. Optional
+neuromaps, BrainSpace, and BrainSMASH dependencies and fetched reference maps
+retain their own licenses. See docs/molecular.md for scope and attribution.

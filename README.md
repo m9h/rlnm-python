@@ -35,9 +35,11 @@ largest numerical discrepancy across compared arrays was `1.42e-14`.
 The Python sample pipeline also completed 10,000 permutations over 5,486 voxels.
 [Recorded evidence and scope](docs/validation.md#recorded-initial-validation).
 
-Version 0.1 implements the statistical and functional-mapping core. Structural
+Version 0.2 adds optional molecular annotation and an experimental, nested
+MRI/PET prediction benchmark. The original statistical calculations are unchanged.
+Structural
 tractography, electrode reconstruction, electric-field simulation, registration,
-clinical prediction, and a full interactive viewer are outside this release.
+validated clinical prediction, and a full interactive viewer are outside this release.
 Precomputed connectivity maps can be imported; their modality and interpretation
 must be appropriate to the specified analysis. A disconnectome probability is not
 automatically interchangeable with a signed functional-connectivity map.
@@ -45,6 +47,34 @@ automatically interchangeable with a signed functional-connectivity map.
 The pinned upstream's fixed-residual permutation method and selected-sign
 sensitivity tail are explicitly identified in every analysis. Numerical agreement
 does not establish that these inferential choices are calibrated for every study.
+
+## Molecular annotations and EigenBrain-style benchmarking
+
+```bash
+uv sync --locked --all-extras
+uv run --all-extras rlnm demo-research --output outputs/research
+uv run --all-extras rlnm annotate outputs/research/annotate.json --output outputs/annotation
+uv run --all-extras rlnm benchmark-eigenbrain outputs/research/benchmark.json --output outputs/benchmark
+```
+
+These examples are synthetic. Each workflow writes a standalone `report.html`,
+machine-readable results, and input/output hashes. Nothing downloads during the
+synthetic demos. An explicit neuromaps query in an annotation config downloads
+that reference map into the output directory's cache.
+
+- **`annotate`:** continuous NIfTI map → common-domain parcel averages →
+  annotation-side BrainSMASH spatial surrogates → two-sided correlations and BH
+  correction across annotations. Includes coverage and variogram diagnostics.
+- **`benchmark-eigenbrain`:** paired individual FC/PET arrays plus an independent
+  reference FC matrix → BrainSpace gradients → nested leave-one-subject-out
+  molecular reconstruction, compared with a training-only population atlas.
+
+See [configuration, methods, and limitations](docs/molecular.md). This is an
+independent FC-only experiment inspired by [EigenBrain](https://doi.org/10.64898/2026.10.27.758642),
+not a reproduction of the complete paper or evidence of individual receptor density.
+Map-comparison nulls complement the original lesion-location and symptom-label
+nulls; they test different hypotheses. Optional dependencies and fetched atlases
+retain their own licenses and attribution requirements.
 
 ## Development
 

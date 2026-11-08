@@ -19,6 +19,28 @@ jobs:
       - run: uv run ruff check .
       - run: uv run pytest -q
       - run: uv build
+  research-extras:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+      - run: uv sync --locked --all-extras
+      - run: uv run --all-extras pytest -q
+      - run: uv run --all-extras rlnm demo-research --output outputs/research
+      - run: uv run --all-extras rlnm annotate outputs/research/annotate.json --output outputs/annotation
+      - run: uv run --all-extras rlnm benchmark-eigenbrain outputs/research/benchmark.json --output outputs/benchmark
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-examples-${{ matrix.os }}
+          path: |
+            outputs/annotation/
+            outputs/benchmark/
   matlab-source-oracle:
     runs-on: ubuntu-latest
     steps:

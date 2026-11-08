@@ -1,0 +1,83 @@
+{
+  "scope": "Synthetic integration and real annotation-fetch smoke check; no biological accuracy claim",
+  "local_tests": 35,
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.18.1",
+    "neuromaps": "0.0.7",
+    "brainsmash": "0.11.0",
+    "brainspace": "0.2.1"
+  },
+  "annotation": {
+    "analysis": "annotation",
+    "space": "synthetic-grid",
+    "n_parcels": 60,
+    "excluded_parcels": [],
+    "n_nulls": 99,
+    "minimum_possible_p": 0.01,
+    "null_fit_review_required": true,
+    "fdr_family": "all requested annotations for this one target map",
+    "test": "two-sided Pearson; annotation-side BrainSMASH spatial surrogates",
+    "coverage": "common finite voxel domain; zeros retained unless explicitly excluded",
+    "interpretation": "Spatial correspondence to reference maps, not receptor measurements",
+    "null_caveat": "Independent blocks do not preserve cross-block covariance. Review variograms; generation does not certify null calibration.",
+    "results": [
+      {
+        "annotation": "synthetic-smooth",
+        "r": 0.9722282765381052,
+        "p_spatial": 0.01,
+        "n_parcels": 60,
+        "citation": "synthetic demo",
+        "worst_variogram_relative_rmse": 3.0777558725490177,
+        "q_bh": 0.02
+      },
+      {
+        "annotation": "synthetic-other",
+        "r": 0.10876189052188977,
+        "p_spatial": 0.61,
+        "n_parcels": 60,
+        "citation": "synthetic demo",
+        "worst_variogram_relative_rmse": 2.5620912140701484,
+        "q_bh": 0.61
+      }
+    ]
+  },
+  "benchmark": {
+    "analysis": "eigenbrain-benchmark",
+    "experimental": true,
+    "space": "synthetic-grid",
+    "marker": "synthetic molecular profile",
+    "n_subjects": 8,
+    "n_parcels": 60,
+    "components": [
+      3,
+      6,
+      10
+    ],
+    "reference_citation": "synthetic demo",
+    "validation": "Nested leave-one-subject-out; inner-test MSE selects component count",
+    "baseline": "Mean standardized PET map of outer-training subjects only",
+    "mean_model_mse": 0.3791570077761649,
+    "mean_baseline_mse": 0.15666047404598907,
+    "mean_mse_improvement": -0.2224965337301758,
+    "subjects_improved": 0,
+    "interpretation": "Experimental prediction of within-map standardized molecular spatial profiles, not absolute receptor density. No clinical accuracy or statistical significance is implied by these scores.",
+    "limits": "FC-only independent implementation; not full EigenBrain reproduction. Related participants and site effects need grouped/external validation. Reference independence is declared by supplied IDs, not independently verified."
+  },
+  "real_fetch": {
+    "query": {
+      "source": "savli2012",
+      "desc": "way100635",
+      "space": "MNI152",
+      "res": "3mm"
+    },
+    "shape": [
+      61,
+      73,
+      61
+    ],
+    "spatial_unit": "mm",
+    "sha256": "7385b5570046fc350d069b6115aef4b0a534a4b19db28349340b2520e279dbea",
+    "citation": "https://doi.org/10.1016/j.neuroimage.2012.07.001"
+  }
+}
