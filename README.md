@@ -26,6 +26,10 @@ See [methods and limitations](docs/methods.md), [input formats](docs/inputs.md),
 and [validation](docs/validation.md). Python 3.11+ is supported. No MATLAB license
 is needed to run the Python package.
 
+The [research and software comparison](docs/software-landscape.md) connects
+disconnectome analysis, Horn's Lead-DBS ecosystem, Python alternatives, and EigenBrain,
+with sources and priorities for further development.
+
 ## Status
 
 Initial validation passed: 20 tests on Linux, macOS and Windows (Python 3.11/3.12),
