@@ -137,6 +137,11 @@ and scientific limitations are documented in [molecular workflows](molecular.md)
 
 ## Recommended next work
 
+The [ARC lab validation plan](arc-lab-plan.md) develops these priorities into
+patient-data benchmarks on the DGX Spark and NAS, and incorporates Pruckner and
+colleagues' longitudinal quantitative tractography as an additional validation
+direction.
+
 1. Add explicit adapters for Lead Mapper outputs and stimulation derivatives,
    preserving coordinate systems, units, modality, and source provenance.
 2. Add structural disconnection using a documented tractogram/reference dataset

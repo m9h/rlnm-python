@@ -30,6 +30,10 @@ The [research and software comparison](docs/software-landscape.md) connects
 disconnectome analysis, Horn's Lead-DBS ecosystem, Python alternatives, and EigenBrain,
 with sources and priorities for further development.
 
+The [ARC lab validation plan](docs/arc-lab-plan.md) specifies DGX Spark execution,
+NAS storage, patient-outcome benchmarks, and a proposed longitudinal tractography
+extension. These ARC workflows are planned and have not yet run.
+
 ## Status
 
 Initial validation passed: 20 tests on Linux, macOS and Windows (Python 3.11/3.12),
